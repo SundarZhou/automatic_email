@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     root :to => 'dashboard#index'
+    get '/setting' => 'dashboard#edit'
+    post '/setting' => 'dashboard#update'
   end
 end
