@@ -1,0 +1,14 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :credit_card_id, '所属卡号' %>
+<%= f.select :credit_card_id, CreditCard.pluck_for_select, {}, class: "form-control" %>
+
+<%= f.label :currency_id, '所属卡号' %>
+<%= f.select :currency_id, Currency.pluck_for_select, {}, class: "form-control" %>
+
+<%= f.input :amount, input_html: {class: 'form-control'}, label: '刷卡金额' %>
+
+<%= f.input :credit_date, input_html: {class: 'form-control'}, label: '刷卡日期' %>
+
+<%= f.label :repayment_record_id, '收款记录' %>
+<%= f.select :repayment_record_id, RepaymentRecord.pluck_for_select, {}, class: "form-control" %>

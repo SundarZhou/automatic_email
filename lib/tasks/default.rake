@@ -13,6 +13,8 @@ namespace :default do
 
       puts "account is #{user.email} #{user.password}"
       # UserMailer.welcome(user, password).deliver
+    else
+      puts User.first.email
     end
 
     if Setting.count == 0

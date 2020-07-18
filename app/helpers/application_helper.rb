@@ -6,6 +6,7 @@ module ApplicationHelper
       "#{page_title} - #{base_title}"
     end
   end
+
   def notice_message
     alert_types = { notice: :success, alert: :danger }
 
@@ -23,20 +24,31 @@ module ApplicationHelper
 
     alerts.join("\n").html_safe
   end
-  def main_nav
-    nav_html = %Q[
-      <li class="#{'active' if controller_name == 'dashboard'}">#{link_to '控制面板', root_path}</li>
-    ]
 
-    nav_html
+  def credit_arr
+    ['banks', 'currencies', 'credit_cards', 'credit_card_records', 'repayment_records']
+  end
+
+  def main_nav
+    %Q[
+      <li class="#{'active' if controller_name == 'dashboard'}">#{link_to '控制面板', root_path}</li>
+      <li class="#{'active' if credit_arr.include?(controller_name)}">#{link_to '信用卡相关', banks_path}</li>
+    ]
   end
 
   def side_nav
-    if controller_name == 'dashboard'
-      nav_html = %Q[
+    nav_html = if controller_name == 'dashboard'
+      %Q[
         <li class="#{'active' if controller_name == 'dashboard'}">#{link_to "控制面板", root_path}</li>
       ]
+    elsif credit_arr.include? controller_name
+      %Q[
+        <li class="#{'active' if controller_name == 'banks'}">#{link_to "银行", banks_path}</li>
+        <li class="#{'active' if controller_name == 'currencies'}">#{link_to "币种", currencies_path}</li>
+        <li class="#{'active' if controller_name == 'credit_cards'}">#{link_to "卡号", credit_cards_path}</li>
+        <li class="#{'active' if controller_name == 'credit_card_records'}">#{link_to "刷卡记录", credit_card_records_path}</li>
+        <li class="#{'active' if controller_name == 'repayment_records'}">#{link_to "还款记录", repayment_records_path}</li>
+      ]
     end
-    nav_html
   end
 end

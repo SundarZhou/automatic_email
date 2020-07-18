@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_082153) do
+ActiveRecord::Schema.define(version: 2020_07_17_165621) do
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "repayment_date"
+    t.integer "billing_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_card_records", force: :cascade do |t|
+    t.integer "credit_card_id"
+    t.integer "repayment_record_id"
+    t.integer "currency_id"
+    t.float "amount"
+    t.date "credit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_card_id"], name: "index_credit_card_records_on_credit_card_id"
+    t.index ["currency_id"], name: "index_credit_card_records_on_currency_id"
+    t.index ["repayment_record_id"], name: "index_credit_card_records_on_repayment_record_id"
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.integer "bank_id"
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_id"], name: "index_credit_cards_on_bank_id"
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repayment_records", force: :cascade do |t|
+    t.float "total_amount"
+    t.date "payment_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string "title", null: false

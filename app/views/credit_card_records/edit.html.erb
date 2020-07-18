@@ -1,0 +1,11 @@
+<h1 class="page-header">修改刷卡记录</h1>
+<% provide(:title, '修改刷卡记录') %>
+<div class="show_con">
+  <div class="container-fluid">
+
+    <%= simple_form_for @credit_card_record, url: credit_card_record_path(@credit_card_record),html: {class: 'form-horizontal'} do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= f.submit '修改刷卡记录', :class => 'btn btn-success form-control' %>
+    <% end %>
+  </div>
+</div>
