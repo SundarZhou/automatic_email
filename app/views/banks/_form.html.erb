@@ -1,0 +1,5 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.input :name, input_html: {class: 'form-control'}, label: '名字' %>
+<%= f.input :repayment_date, input_html: {class: 'form-control'}, label: '还款日期' %>
+<%= f.input :billing_date, input_html: {class: 'form-control'}, label: '帐单日期' %>

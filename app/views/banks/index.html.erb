@@ -1,0 +1,31 @@
+<% provide(:title, "银行") %>
+<h1 class="page-header">银行</h1>
+
+<div class="form-inline">
+
+  <%= link_to '添加银行', new_bank_path, class: 'btn btn-default', 'data-no-turbolink' => true %>
+
+</div>
+
+<% if @banks.present? %>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>银行</th>
+        <th>帐单日期</th>
+        <th>还款日期</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @banks.each do |b| %>
+        <tr>
+          <td><%= b.name %></td>
+          <td><%= b.billing_date %></td>
+          <td><%= b.repayment_date %></td>
+          <td><%= link_to'修改' , edit_bank_path(b), class: 'btn btn-info'%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
