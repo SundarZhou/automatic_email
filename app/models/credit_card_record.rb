@@ -1,10 +1,9 @@
 class CreditCardRecord < ApplicationRecord
   belongs_to :credit_card
   belongs_to :currency
-  belongs_to :repayment_record
+  belongs_to :repayment_record, required: false
 
   delegate :name, :to => :currency, :allow_nil => true, :prefix => true
-
   def message
     "#{credit_card.bank_name}-#{credit_card.sort_number}-#{amount}"
   end

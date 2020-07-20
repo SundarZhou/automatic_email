@@ -8,6 +8,6 @@ class CreditCard < ApplicationRecord
   end
 
   def self.pluck_for_select
-    self.all.map{|c| ["#{c.bank_name}-#{c.sort_number}", c.id]}.sort{|name, id| name}
+    self.all.map{|c| ["#{c.bank_name}-#{c.sort_number}", c.id]}.sort_by{|name, id| name}
   end
 end
