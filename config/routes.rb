@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     root :to => 'dashboard#index'
     get '/setting' => 'dashboard#edit'
     post '/setting' => 'dashboard#update'
-    resources :banks, :currencies, :credit_cards, :repayment_records, :credit_card_records
+    resources :banks, :currencies, :repayment_records, :credit_card_records
+    resources :credit_cards do
+      member do
+        get 'outstanding'
+      end
+    end
   end
 end

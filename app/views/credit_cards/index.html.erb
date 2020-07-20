@@ -13,6 +13,7 @@
       <tr>
         <th>银行</th>
         <th>卡号</th>
+        <th>未结清数</th>
         <th>操作</th>
       </tr>
     </thead>
@@ -21,7 +22,11 @@
         <tr>
           <td><%= c.bank_name %></td>
           <td><%= c.number %></td>
-          <td><%= link_to'修改' , edit_credit_card_path(c), class: 'btn btn-info'%></td>
+          <td><%= c.credit_card_records.where(repayment_record_id: nil).size %></td>
+          <td>
+            <%= link_to'修改' , edit_credit_card_path(c), class: 'btn btn-info' %>
+            <%= link_to '未结清列表', outstanding_credit_card_path(c), class: 'btn btn-success'  %>
+          </td>
         </tr>
       <% end %>
     </tbody>

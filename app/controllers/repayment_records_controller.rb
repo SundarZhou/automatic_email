@@ -2,7 +2,7 @@ class RepaymentRecordsController < ApplicationController
   before_action :find_repayment_record, only: [ :edit, :update,:destroy]
 
   def index
-    @repayment_records = RepaymentRecord.all
+    @repayment_records = RepaymentRecord.order("payment_date desc")
   end
 
   def new

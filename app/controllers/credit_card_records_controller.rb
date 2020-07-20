@@ -2,7 +2,7 @@ class CreditCardRecordsController < ApplicationController
   before_action :find_credit_card_record, only: [ :edit, :update,:destroy]
 
   def index
-    @credit_card_records = CreditCardRecord.all
+    @credit_card_records = CreditCardRecord.order("credit_date desc")
   end
 
   def new

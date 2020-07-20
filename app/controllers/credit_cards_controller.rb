@@ -1,8 +1,8 @@
 class CreditCardsController < ApplicationController
-  before_action :find_credit_card, only: [ :edit, :update,:destroy]
+  before_action :find_credit_card, only: [ :edit, :update,:destroy, :outstanding]
 
   def index
-    @credit_cards = CreditCard.all
+    @credit_cards = CreditCard.joins(:bank).order("banks.name desc")
   end
 
   def new
@@ -27,6 +27,10 @@ class CreditCardsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def outstanding
+    @records = @credit_card.credit_card_records.where(repayment_record_id: nil)
   end
 
   private
