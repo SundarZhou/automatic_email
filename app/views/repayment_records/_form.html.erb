@@ -6,3 +6,7 @@
 
 
 <%= select_tag 'credit_card_record_ids[]', options_for_select(CreditCardRecord.pluck_for_select, @repayment_record.credit_card_records.pluck(:id)), multiple: true %>
+
+<script>
+  $("#credit_card_record_ids_").select2()
+</script>

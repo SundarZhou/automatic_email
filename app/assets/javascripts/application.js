@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require_directory
 //= require kindeditor
+//= require select2/select2.min
