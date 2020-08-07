@@ -16,6 +16,8 @@
         <th>币种</th>
         <th>刷卡金额</th>
         <th>刷卡日期</th>
+        <th>还款日期</th>
+        <td>帐单日期</td>
         <th>收款记录</th>
         <th>操作</th>
       </tr>
@@ -29,6 +31,8 @@
           <td><%= c.currency_name %></td>
           <td><%= c.amount %></td>
           <td><%= c.credit_date %></td>
+          <td><%= card.repayment_date %></td>
+          <td><%= card.bank_billing_date %></td>
           <td><%= c.repayment_record&.message %></td>
           <td><%= link_to'修改' , edit_credit_card_record_path(c), class: 'btn btn-info'%></td>
         </tr>

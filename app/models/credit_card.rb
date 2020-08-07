@@ -1,7 +1,7 @@
 class CreditCard < ApplicationRecord
   belongs_to :bank
   has_many :credit_card_records
-  delegate :name, :to => :bank, :allow_nil => true, :prefix => true
+  delegate :name, :repayment_date, :billing_date, :to => :bank, :allow_nil => true, :prefix => true
 
   def sort_number
     number[-4..-1]
