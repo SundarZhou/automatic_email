@@ -13,6 +13,7 @@
       <tr>
         <th>日期</th>
         <th>金额</th>
+        <th>备注</th>
         <th>操作</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
         <tr>
           <td><%= r.payment_date %></td>
           <td><%= r.total_amount %></td>
+          <td><%= r.message %></td>
           <td><%= link_to'修改' , edit_repayment_record_path(r), class: 'btn btn-info'%></td>
         </tr>
       <% end %>

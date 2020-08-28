@@ -3,7 +3,7 @@
 
 <%= f.input :total_amount, input_html: {class: 'form-control'}, label: '还款金额' %>
 <%= f.input :payment_date, input_html: {class: 'form-control'}, label: '还款日期'  %>
-
+<%= f.input :message, input_html: {class: 'form-control'}, label: '备注' %>
 
 <%= select_tag 'credit_card_record_ids[]', options_for_select(CreditCardRecord.pluck_for_select, @repayment_record.credit_card_records.pluck(:id)), multiple: true %>
 

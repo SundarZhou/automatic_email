@@ -6,6 +6,6 @@ class RepaymentRecord < ApplicationRecord
   end
 
   def self.pluck_for_select
-    self.all.map{|r| [r.message, r.id]}
+    [''] + self.all.map{|r| [r.message, r.id]}
   end
 end

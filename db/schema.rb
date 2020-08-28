@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_165621) do
+ActiveRecord::Schema.define(version: 2020_08_28_083205) do
 
   create_table "banks", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_165621) do
     t.date "payment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "message"
   end
 
   create_table "settings", force: :cascade do |t|

@@ -11,4 +11,4 @@
 <%= f.input :credit_date, input_html: {class: 'form-control'}, label: '刷卡日期' %>
 
 <%= f.label :repayment_record_id, '收款记录' %>
-<%= f.select :repayment_record_id, RepaymentRecord.pluck_for_select, {}, class: "form-control" %>
+<%= f.select :repayment_record_id, RepaymentRecord.pluck_for_select, {}, include_blank: "", class: "form-control" %>
