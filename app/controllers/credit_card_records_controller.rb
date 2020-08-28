@@ -35,6 +35,6 @@ class CreditCardRecordsController < ApplicationController
   end
 
   def permit_params
-    params.require(:credit_card_record).permit(:currency_id, :credit_card_id, :amount, :credit_date)
+    params.require(:credit_card_record).permit(:currency_id, :credit_card_id, :amount, :credit_date, :repayment_record_id)
   end
 end

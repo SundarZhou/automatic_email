@@ -33,7 +33,7 @@
           <td><%= c.credit_date %></td>
           <td><%= card.bank_repayment_date %></td>
           <td><%= card.bank_billing_date %></td>
-          <td><%= c.repayment_record&.message %></td>
+          <td><%= c.repayment_record&.select_message %></td>
           <td><%= link_to'修改' , edit_credit_card_record_path(c), class: 'btn btn-info'%></td>
         </tr>
       <% end %>
