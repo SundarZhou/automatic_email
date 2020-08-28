@@ -38,6 +38,6 @@ class RepaymentRecordsController < ApplicationController
   end
 
   def permit_params
-    params.require(:repayment_record).permit(:total_amount, :payment_date)
+    params.require(:repayment_record).permit(:total_amount, :payment_date, :message)
   end
 end
